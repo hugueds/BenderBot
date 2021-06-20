@@ -15,13 +15,13 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-bender_bot = Bot(False, False)
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 BOT_NAME = os.getenv("BOT_NAME")
 DEBUG = True if os.getenv("DEBUG") else False
 port = int(os.environ.get('PORT', 5000))
 
+bender_bot = Bot(TELEGRAM_TOKEN)
 
 def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)

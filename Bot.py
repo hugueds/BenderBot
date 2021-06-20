@@ -1,10 +1,19 @@
+from telegram.ext import Dispatcher, Updater, MessageHandler, Filters 
+from Handlers import messageHandlers, commandHandlers
+
 class Bot:
-    token = ''
+    
+    __updater = None
+    __dispatcher = None
 
+    def __init__(self, token, offense = False, mute = False):
+        self.token = token
+        self.offense = offense
+        self.mute = mute
 
-    def __init__(self, offenseOn, muteOn):
-        self.offenseOn = offenseOn
-        self.mute = muteOn
+    def start():
+        self.__updater = Updater(token=self.token, use_context=True)
+        self.__dispatcher = self.__updater.dispatcher
 
     def welcome(self):
         ...
@@ -14,3 +23,6 @@ class Bot:
 
     def offense(self):
         ...
+        
+    def job_appliance(self):
+        ... 
